@@ -1,0 +1,15 @@
+---
+import '../styles/Header.scss';
+
+interface Props {
+	title: string;
+    paragraphe: string
+}
+
+const {title, paragraphe} = Astro.props;
+---
+
+<header class="header">
+    <h1>{title}</h1>
+    <p>{paragraphe}</p>
+</header>

@@ -1,0 +1,9 @@
+---
+const { title, price, image } = Astro.props;
+---
+<div class="product-card">
+  <img src={image} alt={title} />
+  <h3>{title}</h3>
+  <p>Prix : {price} €</p>
+  <button>Ajouter au panier</button>
+</div>

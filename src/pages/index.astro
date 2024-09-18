@@ -1,19 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Card from '../components/Card.astro';
-import Footer from '../components/Footer.astro';
+import MainLayout from '../layouts/MainLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import products from '../data/games.json';
 ---
 
-<Layout>
-	<Header title="Header" paragraphe="Contenu introductif";></Header>
-	<main>
-		<Card name="Monkey D Luffy" url="https://c.tenor.com/Fc08jEorTWkAAAAC/one-piece-luffy.gif" 
-		content=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus." link="#"></Card>
-	</main>
-	<Footer title="Footer" paragraphe="Pied de la page";></Footer>
-</Layout>
+<MainLayout>
+  <h1>Bienvenue sur notre boutique de jeux vidéo</h1>
+  <p>Découvrez les meilleurs jeux du moment !</p>
 
-<!-- 
-<style>
-</style>-->
+  <div class="featured-products">
+    {products.slice(0, 3).map((product) => (
+      <ProductCard title={product.title} price={product.price} image={product.image} />
+    ))}
+  </div>
+</MainLayout>

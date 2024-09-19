@@ -4,31 +4,114 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: $bg_color;
+    background-color: $background-color;
 }
 
 header, footer {
-    background-color: $bg_color_second;
-    color: $font_color;
+    background-color: $button-color;
+    color: $text_color;
     text-align: center;
     padding: 1rem;
 }
 
 nav a {
-    color: $font_color;
+    color: $text_color;
     margin: 0 15px;
     text-decoration: none;
 }
 
-.product-card {
-    border: 1px solid $border_card_color;
-    background-color: $card_color;
-    padding: 15px;
-    text-align: center;
+
+main h1, h3, p{
+    color: $text_color;
 }
 
+h1 {
+    font-size: $large_font;
+}
+h3 {
+    font-size: $medium_font;
+}
+p {
+    font-size: $small_font;
+}
 .product-card img {
     max-width: 100%;
     width: $img_width;
     height: auto;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in;
+}
+
+
+button {
+    height: $button_height;
+    width: $button_width;
+    border: 1px solid $button_color;
+    background-color: $button_color;
+    color: $text_color;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+  
+button:hover {
+    background-color: transparent;
+    color: $button_color;
+  }
+
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; // Espace entre les cartes
+    padding: 20px;
+  }
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #333;
+  }
+
+  p {
+    color: #666;
+    font-size: 1rem;
+    margin: 10px 0;
+    line-height: 1.4;
+  }
+
+  .price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 10px 0;
+  }
+
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #2980b9;
+    }
+  }
 }

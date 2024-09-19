@@ -10,7 +10,7 @@ import products from '../data/games.json';
 
   <div class="featured-products">
     {products.slice(0, 3).map((product) => (
-      <ProductCard title={product.title} price={product.price} image={product.image} />
+      <ProductCard title={product.title} price={product.price} image={product.image}, description={product.description} />
     ))}
   </div>
 </MainLayout>

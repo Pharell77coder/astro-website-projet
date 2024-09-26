@@ -53,21 +53,21 @@
       "title": "Assasin creed : Shadows",
       "price": 69.99,
       "description": "Description a ajouter",
-      "image": ""
+      "image": "https://jvmag.ch/wp-content/uploads/2024/09/Assassins-Creed-Shadow.webp"
     },
     {
       "id": 9,
       "title": "Spider-man 2",
       "price": 59.99,
       "description": "Description a ajouter",
-      "image": ""
+      "image": "https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/97e9f5fa6e50c185d249956c6f198a2652a9217e69a59ecd.jpg"
     },
     {
       "id": 10,
       "title": "Animal crossing new life",
       "price": 59.99,
       "description": "Description a ajouter",
-      "image": ""
+      "image": "https://www.nintendo.com/eu/media/images/03_teaser_module_1_square/games_3/nintendo_3ds_16/TM_3DS_AnimalCrossingNewLeaf.png"
     },
     {
       "id": 11,

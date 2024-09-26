@@ -1,0 +1,29 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import articles from '../../data/games.json';
+
+export async function getStaticPaths() {
+  return articles.map((article) => ({
+    params: { id: article.id.toString() },
+    props: { article },
+  }));
+}
+const { article } = Astro.props;
+
+if (!article) {
+  throw new Error(`Article ${article} non trouvé`);
+}
+---
+<MainLayout>
+    <div class="product-card">
+        <div class="card_containers">
+        <img src={article.image} alt={article.title} />
+        <h3>{article.title}</h3>
+        <p>{article.price} €</p>
+        <button>Ajouter au panier</button>
+      </div>
+        <div class="description_containers">
+          <p>{article.description}</p>
+        </div><a href="/">Retour à la liste des articles</a>
+      </div>    
+</MainLayout>

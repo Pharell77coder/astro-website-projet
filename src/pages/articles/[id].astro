@@ -24,6 +24,10 @@ if (!article) {
       </div>
         <div class="description_containers">
           <p>{article.description}</p>
+          <iframe width="560" height="315" src={article.video} 
+          title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div><a href="/">Retour à la liste des articles</a>
       </div>    
 </MainLayout>

@@ -1,16 +1,44 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import ProductCard from '../components/ProductCard.astro';
-import products from '../data/games.json';
+import products_list from '../data/games.json';
+import HomeCard from '../components/Home_card.astro';
+import '../styles/home.scss'
 ---
 
 <MainLayout>
-  <h1>Bienvenue sur notre boutique de jeux vidéo</h1>
-  <p>Découvrez les meilleurs jeux du moment !</p>
-
-  <div class="featured-products">
-    {products.slice(0, 3).map((product) => (
-      <ProductCard title={product.title} price={product.price} image={product.image}, description={product.description}, id={product.id} />
-    ))}
+<div class="home">
+  <div class="home__header" style = "background-image: 
+  url('https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_TloZTearsOfTheKingdom_Gamepage_image1600w.jpg'); 
+  center center no-repeat; background-size: 100rem;">
+      <h1>Jeu de L'année 2023</h1>
+      <p>The Legend of Zelda : Tears of the Kingdom est le 20e opus de la série The Legend of Zelda. Il est sorti en exclusivité sur Nintendo Switch le 12 mai 2023 à l'international. Il s'agit de la suite de Breath of the Wild. Il s'agit du quatrième opus à sortir sur Switch, mais également du 1er opus inédit de la console.</p>
+      <button>Ajouter au panier</button>
   </div>
+  <div class="home__card">
+      {products_list.slice(0, 4).map((product) => (
+        <HomeCard title={product.title} image={product.image} />
+      ))}
+    </div>
+</div>
+<div class="categories">
+  <h2>| CATEGORIES</h2>
+  <div class="container"></div>
+</div>
+<div class="populars">
+  <h2>| POPULARS</h2>
+  <div class="container"></div>
+</div>
+<div class="promotions">
+  <h2>| PROMOTIONS - 40 %</h2>
+  <div class="container"></div>
+</div>
+<div class="sale">
+  <h2>| SALE</h2>
+  <div class="container"></div>
+</div>
+<div class="news">
+  <h2>| NEWS</h2>
+  <div class="container"></div>
+</div>
+<div>NEWSLETTERS MORE LATER</div>
 </MainLayout>

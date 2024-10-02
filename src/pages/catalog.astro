@@ -1,0 +1,22 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ProductCard from '../old/components/ProductCard.astro';
+import products from '../data/games.json';
+
+const productList = products.map(product => ({
+  href: `/articles/${product.id}`,
+  title: product.title,
+  price: product.price,
+  image: product.image,
+  id: product.id
+}));
+---
+
+<MainLayout>
+  <h1>Catalogue des Jeux Vidéo</h1>
+  <div class="product-list">
+    {productList.map((product) => (
+      <ProductCard title={product.title} price={product.price} image={product.image} id={product.id} />
+    ))}
+  </div>
+</MainLayout>

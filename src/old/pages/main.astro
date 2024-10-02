@@ -1,0 +1,16 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import products from '../../data/games.json';
+---
+
+<MainLayout>
+  <h1>Bienvenue sur notre boutique de jeux vidéo</h1>
+  <p>Découvrez les meilleurs jeux du moment !</p>
+
+  <div class="featured-products">
+    {products.slice(0, 4).map((product) => (
+      <ProductCard title={product.title} price={product.price} image={product.image}, description={product.description}, id={product.id} />
+    ))}
+  </div>
+</MainLayout>

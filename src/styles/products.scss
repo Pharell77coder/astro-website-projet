@@ -1,19 +1,23 @@
+@mixin flex_container{
+    display: flex;
+    flex-direction: column;
+}
+
+
 iframe {
     height: 500px;
     width: 700px;
 }
 
 .product__card {
-    display: flex;
-    flex-direction: column;
+    @include flex_container;
     align-items: center;
     &__containers {
         display: flex;
         flex-direction: row;
         margin: 5rem;
         &__content {
-            display: flex;
-            flex-direction: column;
+            @include flex_container;
             button {
                 max-width: 20rem;
                 min-width: 15rem;

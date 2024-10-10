@@ -1,0 +1,17 @@
+@import "typography";
+
+
+header{
+  background-color: $background_color;
+  color: $text_color;
+  text-align: center;
+  padding: 1rem;
+  /*display: flex;
+  flex-direction: row;*/
+}
+
+nav a{
+  color: $text_color;
+  margin: 0 15px;
+  text-decoration: none
+}

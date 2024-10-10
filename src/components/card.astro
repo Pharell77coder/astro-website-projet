@@ -1,0 +1,12 @@
+---
+const { title, id, source} = Astro.props;
+import '../styles/card.scss'
+---
+<a href={`/products/${id}`}>
+<figure class="card">
+    <img class="card__image" src={source} alt="" />
+    <figcaption class="card__body">
+      <h2 class="card__title">{title}</h2>
+    </figcaption>
+</figure>
+</a>

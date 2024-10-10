@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/layout.astro';
+import '../../styles/products.scss';
+import '../../styles/global.scss';
+import Card from '../../components/card.astro';
+import products from '../../data/product.json';
+import  '../../interactions/save.ts';
+
+export async function getStaticPaths() {
+  return products.map((product) => ({
+    params: { id: product.id.toString() },
+    props: { product },
+  }));
+}
+const { product } = Astro.props;
+
+if (!product) {
+  throw new Error(`Article ${product} non trouvé`);
+}
+---
+<Layout>
+<div class="product__card">
+    <div class="product__card__containers">
+        <div class="product__card__containers__content">
+            <Card title={product.title} source={product.image} />
+        </div>
+        <div class="product__card__containers__content">
+            <p>{product.description}</p>
+            <button onclick={`addToCart(${product.id}, "${product.title}", ${product.price})`} ><p>{product.price} $</span> </p></button>
+        </div>
+    </div>
+    <iframe src={product.video} title=`${product.title} video`frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <a href="/">Retour à la liste des articles</a>
+</div>    
+</Layout>

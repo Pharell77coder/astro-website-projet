@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/layout.astro';
+import '../styles/global.scss';
+import products from '../data/product.json';
+---
+
+<Layout>
+  <h1>Votre Panier</h1>
+
+  <div id="cart" class="cart">
+    
+    <div id="cart-items" class="cart-items">
+    </div>
+
+    <div id="cart-total" class="cart-total">
+      <h3>Total: $0</h3>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const initialProducts = [
+    { id: 1, name: "Produit A", price: 10, quantity: 1 },
+    { id: 2, name: "Produit B", price: 15, quantity: 1 },
+  ];
+
+  let cartItemsElement = document.getElementById('cart-items');
+  let cartTotalElement = document.getElementById('cart-total');
+
+  let cartItems = initialProducts;
+
+function renderCart() {
+    const cartItemsElement = document.getElementById('cart-items');
+    if (cartItemsElement) {
+    cartItemsElement.innerHTML = '';
+    }
+
+
+    cartItems.forEach(function(item) {
+      let itemElement = document.createElement('div');
+      itemElement.classList.add('cart-item');
+      itemElement.innerHTML = `
+        <span>${item.name}</span>
+        <span>$${item.price}</span>
+        <span>Quantité: ${item.quantity}</span>
+        <button onclick="addToCart(${item.id})">Ajouter</button>
+        <button onclick="removeFromCart(${item.id})">Retirer</button>
+      `;
+      if (cartItemsElement) {
+        cartItemsElement.appendChild(itemElement);
+    }
+      
+    });
+
+    // Mettre à jour le total
+    let total = cartItems.reduce(function(acc, item) {
+      return acc + item.price * item.quantity;
+    }, 0);
+    const cartTotalElement = document.getElementById('cart-total');
+    if (cartTotalElement) {
+    cartTotalElement.innerHTML = `<h3>Total: $${total}</h3>`;
+    }
+
+  }
+
+  function addToCart(id: number) {
+    cartItems = cartItems.map(function(item) {
+      return item.id === id ? { ...item, quantity: item.quantity + 1 } : item;
+    });
+    renderCart();
+  }
+
+  function removeFromCart(id: number) {
+    cartItems = cartItems.map(function(item) {
+      return item.id === id && item.quantity > 0 ? { ...item, quantity: item.quantity - 1 } : item;
+    });
+    renderCart();
+  }
+
+  renderCart();
+</script>
+
+<style>
+  .cart {
+    border: 1px solid #ddd;
+    padding: 16px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  .cart-total {
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: right;
+  }
+
+  button {
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  button:hover {
+    background-color: #005bb5;
+  }
+</style>

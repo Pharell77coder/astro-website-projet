@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/layout.astro';
+import '../styles/global.scss';
+import Card from '../components/card.astro';
+import products from '../data/product.json';
+---
+
+<Layout>
+  <h1>Bienvenue sur notre boutique de jeux vidéo</h1>
+  <p>Découvrez les meilleurs jeux du moment !</p>
+
+  <div class="products__containers">
+    {products.slice(0, 4).map((product) => (
+      <Card title={product.title} source={product.image} id={product.id} />
+    ))}
+  </div>
+</Layout>

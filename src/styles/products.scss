@@ -22,3 +22,10 @@ iframe {
     }
 }
 
+/* Responsiveness */
+@media screen and (max-width: 700px) {
+    button {
+        max-width: 15rem;
+        min-width: 10rem;
+    }
+}

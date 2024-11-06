@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+$background-color: white;
+:root{
+
+}
+
+html {
+    background-color: $background-color;
+    background: linear-gradient(309deg, rgba(1, 63, 162, 1) 0%, rgba(0, 118, 180, 1) 100%);
+}
+
+body {
+    min-height: 100vh; //viewport height
+    min-width: 100vw; //viewport width
+}
+
+h1, span, div {
+    background: rgb(146, 146, 146)
+}
